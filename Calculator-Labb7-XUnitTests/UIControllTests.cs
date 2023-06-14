@@ -46,5 +46,13 @@ namespace Calculator_Labb7_XUnitTests
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void UserInput_ShouldThrowFormatExceptionIfLetter()
+        {
+            var userInput = new UIControlls();
+
+            Assert.Throws<FormatException>(() => userInput.UserInput("k"));
+        }
     }
 }
