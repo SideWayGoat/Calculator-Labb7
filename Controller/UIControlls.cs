@@ -11,7 +11,7 @@ namespace Calculator_Labb7.Controller
     {
         private static readonly Regex regex = new Regex(@"^-?\d+(\.\d+)?$");
 
-        public decimal UserInput(string input)
+        public bool UserInput(string input, out decimal result)
         {
             if (input == null)
             {
@@ -19,13 +19,13 @@ namespace Calculator_Labb7.Controller
             }
             else if (regex.IsMatch(input))
             {
-                if (decimal.TryParse(input, out decimal result))
+                if (decimal.TryParse(input, out result))
                 {
-                    return result;
+                    return true;
                 }
             }
-
-            throw new FormatException("Invalid input format");
+            result = 0;
+            return false;
         }
     }
 }

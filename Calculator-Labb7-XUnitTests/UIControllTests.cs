@@ -19,11 +19,12 @@ namespace Calculator_Labb7_XUnitTests
             //Input from user
             string a = "2";
             string b = "3";
-
-            var input1 = userInput.UserInput(a);
-            var input2 = userInput.UserInput(b);
-
-            var result = cal.Add(input1, input2);
+            decimal result1 = 0;
+            decimal result2 = 0;
+            var input1 = userInput.UserInput(a, out result1);
+            var input2 = userInput.UserInput(b, out result2);
+            
+            var result = cal.Add(result1, result2);
             decimal expected = 5;
 
             Assert.Equal(expected, result);
@@ -33,26 +34,26 @@ namespace Calculator_Labb7_XUnitTests
         {
             var userInput = new UIControlls();
             var cal = new Calculator();
-
             string a = "-2";
             string b = "-3";
+            decimal result1 = 0;
+            decimal result2 = 0;
+            var input1 = userInput.UserInput(a, out result1);
+            var input2 = userInput.UserInput(b, out result2);
 
-            var input1 = userInput.UserInput(a);
-            var input2 = userInput.UserInput(b);
-
-            var result = cal.Add(input1, input2);
+            var result = cal.Add(result1, result2);
 
             decimal expected = -5;
 
             Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void UserInput_ShouldThrowFormatExceptionIfLetter()
-        {
-            var userInput = new UIControlls();
+        //[Fact]
+        //public void UserInput_ShouldThrowFormatExceptionIfLetter()
+        //{
+        //    var userInput = new UIControlls();
 
-            Assert.Throws<FormatException>(() => userInput.UserInput("k"));
-        }
+        //    Assert.Throws<FormatException>(() => userInput.UserInput("k", out decimal result));
+        //}
     }
 }

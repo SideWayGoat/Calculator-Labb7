@@ -1,10 +1,13 @@
-﻿namespace Calculator_Labb7
+﻿using Calculator_Labb7.Application;
+
+namespace Calculator_Labb7
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            App app = new App();
+            app.Run();
         }
     }
 }
