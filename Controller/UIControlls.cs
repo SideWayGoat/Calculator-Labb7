@@ -13,11 +13,7 @@ namespace Calculator_Labb7.Controller
 
         public bool UserInput(string input, out decimal result)
         {
-            if (input == null)
-            {
-                throw new ArgumentNullException(nameof(input));
-            }
-            else if (regex.IsMatch(input))
+            if (regex.IsMatch(input))
             {
                 if (decimal.TryParse(input, out result))
                 {
