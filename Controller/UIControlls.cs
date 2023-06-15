@@ -10,6 +10,12 @@ namespace Calculator_Labb7.Controller
 {
     public class UIControlls
     {
+        /// <summary Regex Explaination>
+        /// -? allows an optional minus sign (-) at the beginning of the number.
+        /// \d* matches zero or more digits for the integral part of the number.
+        /// \,? allows an optional comma (,) to match numbers without an integral part.
+        /// \d+ matches one or more digits for the decimal part of the number.
+        /// </summary>
         private static readonly Regex regex = new Regex(@"^-?\d*\,?\d+$");
 
         public bool UserInput(string input, out decimal result)
