@@ -47,13 +47,23 @@ namespace Calculator_Labb7_XUnitTests
 
             Assert.Equal(expected, result);
         }
+        [Fact]
+        public void UserInput_ShouldWorkWithDecimalNumbers()
+        {
+            var userInput = new UIControlls();
+            var cal = new Calculator();
+            var a = "0,2";
+            var b = "4";
 
-        //[Fact]
-        //public void UserInput_ShouldThrowFormatExceptionIfLetter()
-        //{
-        //    var userInput = new UIControlls();
+            var input1 = userInput.UserInput(a, out decimal result1);
+            var input2 = userInput.UserInput(b, out decimal result2);
 
-        //    Assert.Throws<FormatException>(() => userInput.UserInput("k", out decimal result));
-        //}
+            var result = cal.Add(result1, result2);
+
+            decimal expected = 4.2M;
+
+            Assert.Equal(expected, result);
+
+        }
     }
 }
