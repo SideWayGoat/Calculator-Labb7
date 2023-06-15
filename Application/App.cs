@@ -15,6 +15,11 @@ namespace Calculator_Labb7.Application
 
         public void Run()
         {
+            Program();
+        }
+
+        private void Program()
+        {
             bool IsRunning = true;
             while (IsRunning)
             {
@@ -33,12 +38,7 @@ namespace Calculator_Labb7.Application
                         MathOperation();
                         break;
                     case "2":
-                        Console.WriteLine("Previous Calculations:");
-                        foreach (var item in calculator.GetHistory())
-                        {
-                            Console.WriteLine(item);
-                        }
-                        Console.ReadKey();
+                        EquationHistory();
                         break;
                     case "3":
                         IsRunning = false;
@@ -48,6 +48,16 @@ namespace Calculator_Labb7.Application
                         break;
                 }
             }
+        }
+
+        private void EquationHistory()
+        {
+            Console.WriteLine("Previous Calculations:");
+            foreach (var item in calculator.GetHistory())
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
         }
 
         private void MathOperation()
