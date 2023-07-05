@@ -27,9 +27,17 @@ namespace Calculator_Labb7.Services
 
         public decimal Divide(decimal a, decimal b)
         {
-            string cal = $"{a} / {b} = {a / b}";
-            history.Add(cal);
-            return Math.Round(a / b, 2);
+            try
+            {
+                string cal = $"{a} / {b} = {a / b}";
+                history.Add(cal);
+                return Math.Round(a / b, 2);
+            }
+            catch (DivideByZeroException)
+            {
+                throw new DivideByZeroException("You can't divide by 0 you crazy person");
+            }
+
         }
 
         public decimal Multiply(decimal a, decimal b)
