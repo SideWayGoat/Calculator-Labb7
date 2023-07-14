@@ -82,6 +82,16 @@ namespace Calculator_Labb7_XUnitTests
 
             Assert.Equal(expected, sum);
         }
+        [Fact]
+        public void Divide_ShouldThrowDivideByZeroExeption()
+        {
+            var cal = new Calculator();
+
+            decimal a = 22;
+            decimal b = 0;
+
+            Assert.Throws<DivideByZeroException>(() => cal.Divide(a, b));
+        }
 
     }
 }
